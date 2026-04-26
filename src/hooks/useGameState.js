@@ -23,7 +23,11 @@ function getBearing(fromLat, fromLng, toLat, toLng) {
   const y = Math.sin(dLng) * Math.cos(lat2)
   const x = Math.cos(lat1) * Math.sin(lat2) -
     Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng)
-  return Math.atan2(y, x) * 180 / Math.PI
+  // Convert to degrees and add 90 to align SVG plane icon
+  // SVG plane points right (east) by default, bearing 0 = north
+  // so we subtract 90 to correct
+  const bearing = Math.atan2(y, x) * 180 / Math.PI
+  return bearing - 90
 }
 
 function generateId() {

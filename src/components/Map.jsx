@@ -191,7 +191,7 @@ function PlaneMarkers({ planePositions }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          transform: rotate(${plane.angle + 90}deg);
+          transform: rotate(${plane.angle}deg);
           filter: drop-shadow(0 0 3px rgba(251,191,36,0.8));
         ">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
