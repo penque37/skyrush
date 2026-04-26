@@ -231,16 +231,18 @@ export function useGameState() {
 
   // ── STATUS ──
   function getStatus(iata) {
-    const a = AIRPORTS.find(x => x.i === iata)
-    if (!a) return 'locked'
-    if (iata === 'BTV' && owned.includes('BTV')) return 'start'
-    if (owned.includes(iata)) return 'owned'
-    if (!canBuyAirport(iata)) return 'locked'
-    const best = bestAC()
-    if (!best.tiers.includes(a.t)) return 'needac'
-    if (money >= a.co) return 'available'
-    return 'locked'
-  }
+  const a = AIRPORTS.find(x => x.i === iata)
+  if (!a) return 'locked'
+  if (iata === 'BTV' && owned.includes('BTV')) return 'start'
+  if (owned.includes(iata)) return 'owned'
+
+  // Check airport tier unlock (own tier below)
+  if (!canBuyAirport(iata)) return 'locked'
+
+  // Check if player can afford it
+  if (money >= a.co) return 'available'
+  return 'locked'
+}
 
   // ── ACTIONS ──
   function buyAirport(iata) {
