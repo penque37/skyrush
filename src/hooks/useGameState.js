@@ -17,17 +17,9 @@ function getDistanceKm(la1, lo1, la2, lo2) {
 }
 
 function getBearing(fromLat, fromLng, toLat, toLng) {
-  const dLng = (toLng - fromLng) * Math.PI / 180
-  const lat1 = fromLat * Math.PI / 180
-  const lat2 = toLat * Math.PI / 180
-  const y = Math.sin(dLng) * Math.cos(lat2)
-  const x = Math.cos(lat1) * Math.sin(lat2) -
-    Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng)
-  // Convert to degrees and add 90 to align SVG plane icon
-  // SVG plane points right (east) by default, bearing 0 = north
-  // so we subtract 90 to correct
-  const bearing = Math.atan2(y, x) * 180 / Math.PI
-  return bearing - 90
+  const dLat = toLat - fromLat
+  const dLng = toLng - fromLng
+  return Math.atan2(dLng, dLat) * 180 / Math.PI
 }
 
 function generateId() {

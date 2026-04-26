@@ -185,24 +185,25 @@ function PlaneMarkers({ planePositions }) {
       iconSize: [20, 20],
       iconAnchor: [10, 10],
       html: `
-        <div style="
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transform: rotate(${plane.angle}deg);
-          filter: drop-shadow(0 0 3px rgba(251,191,36,0.8));
-        ">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-              fill="#fbbf24"
-              stroke="#d97706"
-              stroke-width="0.5"
-            />
-          </svg>
-        </div>
-      `,
+  <div style="
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(${plane.angle}deg);
+    filter: drop-shadow(0 0 3px rgba(251,191,36,0.9));
+    transform-origin: center center;
+  ">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+        fill="#fbbf24"
+        stroke="#d97706"
+        stroke-width="0.5"
+      />
+    </svg>
+  </div>
+`,
     })
 
     return (
